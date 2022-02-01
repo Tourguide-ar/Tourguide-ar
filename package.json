@@ -18,7 +18,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "build-pages": "REACT_APP_BASENAME=/tourguide-ar/ PUBLIC_URL=https://tourguide-ar.github.io/tourguide-ar/ react-scripts build"
   },
   "eslintConfig": {
     "extends": [
