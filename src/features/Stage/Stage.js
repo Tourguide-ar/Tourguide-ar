@@ -1,4 +1,4 @@
-import { Entity, Scene } from "aframe-react";
+import { Entity } from "aframe-react";
 import styles from "./Stage.module.css";
 import React, { useState } from "react";
 
@@ -13,6 +13,7 @@ function Stage() {
     console.log(color);
   };
   console.log("Stage rendering");
+  changeColor();
   return (
     <a-scene>
       <div className={styles["stage"]}>tourstage loading!</div>
