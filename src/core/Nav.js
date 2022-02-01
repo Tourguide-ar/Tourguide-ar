@@ -13,7 +13,7 @@ class Nav extends Component {
             </li>
             <li className={styles["nav-list-spacer"]} />
             <li className={styles["nav-list-item"]}>
-              <Link to="/template">Template</Link>
+              <Link to="/admin-config">Admin Configuration</Link>
             </li>
             <li className={styles["nav-list-spacer"]} />
             <li className={styles["nav-list-item"]}>
