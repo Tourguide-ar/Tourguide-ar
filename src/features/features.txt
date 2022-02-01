@@ -1,0 +1,3 @@
+this folder is for features - e.g. pages for the site.
+it could be called "pages", but it isn't - because features can sometimes be put inside other pages!
+it's weird. just trust the system, lol.
