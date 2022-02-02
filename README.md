@@ -4,20 +4,30 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Getting started
 
-In the project directory, here's what to run:
+in your terminal, navigate to your projects folder eg `cd Documents/MyProjects`
+then run this:
 
+### `git clone https://github.com/Tourguide-ar/Tourguide-ar.git`
+
+now go into the project directory and make NPM install all the necessary modules:
+
+### `cd Tourguide-ar`
 ### `npm install`
 
-You should run this first - it will install all the necessary javascript modules to your local dev folder.
 The app won't run until you've done this!
+
+
+## Running the app
 
 ### `npm start`
 
-Runs the app in the development mode.\
+This runs the app in development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
+
+## Building the website
 
 ### `npm run build`
 
