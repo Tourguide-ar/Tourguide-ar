@@ -13,7 +13,7 @@ function Stage() {
     console.log(color);
   };
   console.log("Stage rendering");
-  changeColor();
+  //changeColor();
   return (
     <a-scene>
       <div className={styles["stage"]}>tourstage loading!</div>
