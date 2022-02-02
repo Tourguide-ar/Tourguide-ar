@@ -2,16 +2,16 @@ import { Entity } from "aframe-react";
 import styles from "./Stage.module.css";
 import React, { useState } from "react";
 
-const colors = ["red", "orange", "yellow", "green", "blue"];
+// const colors = ["red", "orange", "yellow", "green", "blue"];
 
 function Stage() {
-  const [color, setColour] = useState("red");
-  const [colorIter, setColourIter] = useState(0);
-  const changeColor = () => {
-    setColourIter((colorIter + 1) % colors.length);
-    setColour(colors[colorIter]);
-    console.log(color);
-  };
+  const [color] = useState("red");
+  // const [colorIter, setColourIter] = useState(0);
+  // const changeColor = () => {
+  //   setColourIter((colorIter + 1) % colors.length);
+  //   setColour(colors[colorIter]);
+  //   console.log(color);
+  // };
   console.log("Stage rendering");
   //changeColor();
   return (
