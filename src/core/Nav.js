@@ -17,6 +17,10 @@ class Nav extends Component {
             </li>
             <li className={styles["nav-list-spacer"]} />
             <li className={styles["nav-list-item"]}>
+              <Link to="/user-config">User Configuration</Link>
+            </li>
+            <li className={styles["nav-list-spacer"]} />
+            <li className={styles["nav-list-item"]}>
               <Link to="/stage">Stage</Link>
             </li>
             {/*}
