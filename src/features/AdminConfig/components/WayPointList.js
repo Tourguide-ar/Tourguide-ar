@@ -3,11 +3,11 @@ import { useState} from "react";
 import WayPointListItem from "./WayPointListItem";
 import WayPointListItemEdit from "./WayPointListItemEdit";
 function WayPointList({pointList}) {
-    const [currentEditItem, setCurrentEditItem] = useState(false);
+    const [currentEditItem, setCurrentEditItem] = useState(-1);
     return (
         <ol className={styles["point-list"]}
         >
-        {pointList.PointList?.map((item,index) => {
+        {pointList?.map((item,index) => {
             return (
                 index===currentEditItem ? ( <WayPointListItemEdit
                     id={item.id}
