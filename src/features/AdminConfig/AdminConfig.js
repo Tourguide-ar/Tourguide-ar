@@ -1,7 +1,6 @@
 import styles from "./AdminConfig.module.css";
-import TourPicker from "./components/TourPicker";
 import WayPointList from"./components/WayPointList";
-
+import TourPicker from "../../components/TourPicker";
 
 /* This will be stored somewhere proper, eventually. for now, use this to build the site */
 
