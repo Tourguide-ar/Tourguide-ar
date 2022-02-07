@@ -1,5 +1,5 @@
 import styles from "../AdminConfig.module.css";
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef } from "react";
 function WayPointListItemEdit({ name, latitude, longditude }) {
   const [innerName, setInnerName] = useState(name);
   const [innerLatitude, setInnerLatitude] = useState(latitude);
@@ -13,34 +13,32 @@ function WayPointListItemEdit({ name, latitude, longditude }) {
   return (
     <li>
       <form>
-        <div className={styles["itemlist-item-edit-buttons"]}>
-          <button type="submit" ref={submitRef}>
-            Save
-          </button>
-          <button type="reset" ref={cancelRef}>
-            Cancel
-          </button>
-        </div>
-
         <input
-          className={styles["item-prompt-edit"]}
+          className={styles[""]}
           value={innerName}
           required={true}
           onChange={(e) => setInnerName(e.target.value)}
           ref={editNameRef}
         />
         <input
-          className={styles["item-answer-edit"]}
+          className={styles[""]}
           value={innerLatitude}
           onChange={(e) => setInnerLatitude(e.target.value)}
           ref={editLatitudeRef}
         />
         <input
-          className={styles["item-answer-edit"]}
+          className={styles[""]}
           value={innerLongditude}
           onChange={(e) => setInnerLongditude(e.target.value)}
           ref={editLongditudeRef}
         />
+
+        <button type="submit" ref={submitRef}>
+          Save
+        </button>
+        <button type="reset" ref={cancelRef}>
+          Cancel
+        </button>
       </form>
     </li>
   );
