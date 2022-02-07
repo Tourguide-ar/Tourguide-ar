@@ -1,6 +1,4 @@
-import { Entity } from "aframe-react";
-import styles from "./Stage.module.css";
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 
 const useScript = (url) => {
   useEffect(() => {
