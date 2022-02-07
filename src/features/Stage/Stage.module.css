@@ -1,3 +1,16 @@
 .stage {
   overflow: auto;
 }
+
+/* https://aframe.io/docs/1.3.0/components/device-orientation-permission-ui.html */
+.a-dialog-allow-button {
+  background-color: red;
+}
+
+.a-dialog-deny-button {
+  background-color: blue;
+}
+
+.a-dialog-ok-button {
+  background-color: green;
+}
