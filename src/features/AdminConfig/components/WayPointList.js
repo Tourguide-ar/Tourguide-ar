@@ -3,7 +3,7 @@ import { useState } from "react";
 import WayPointListItem from "./WayPointListItem";
 import WayPointListItemEdit from "./WayPointListItemEdit";
 function WayPointList({ pointList }) {
-  const [currentEditItem, setCurrentEditItem] = useState(-1);
+  const [currentEditItem] = useState(-1);
   return (
     <ol className={styles["point-list"]}>
       {pointList?.map((item, index) => {

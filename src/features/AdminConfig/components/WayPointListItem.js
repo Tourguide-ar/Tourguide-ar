@@ -2,10 +2,10 @@ import styles from "../AdminConfig.module.css";
 function WayPointListItem({ id, name, latitude, longditude }) {
   return (
     <li>
-      <span>{id}</span>
-      <span>{name}</span>
-      <span>{latitude}</span>
-      <span>{longditude}</span>
+      <span className={styles[""]}>{id}</span>
+      <span className={styles[""]}>{name}</span>
+      <span className={styles[""]}>{latitude}</span>
+      <span className={styles[""]}>{longditude}</span>
     </li>
   );
 }
