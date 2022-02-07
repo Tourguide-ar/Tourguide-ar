@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "https://Tourguide-ar.github.io/Tourguide-ar/static/css/main.3d418b22.css",
-    "main.js": "https://Tourguide-ar.github.io/Tourguide-ar/static/js/main.15ac7fa4.js",
+    "main.css": "https://Tourguide-ar.github.io/Tourguide-ar/static/css/main.1950632a.css",
+    "main.js": "https://Tourguide-ar.github.io/Tourguide-ar/static/js/main.e97196d3.js",
     "index.html": "https://Tourguide-ar.github.io/Tourguide-ar/index.html",
-    "main.3d418b22.css.map": "https://Tourguide-ar.github.io/Tourguide-ar/static/css/main.3d418b22.css.map",
-    "main.15ac7fa4.js.map": "https://Tourguide-ar.github.io/Tourguide-ar/static/js/main.15ac7fa4.js.map"
+    "main.1950632a.css.map": "https://Tourguide-ar.github.io/Tourguide-ar/static/css/main.1950632a.css.map",
+    "main.e97196d3.js.map": "https://Tourguide-ar.github.io/Tourguide-ar/static/js/main.e97196d3.js.map"
   },
   "entrypoints": [
-    "static/css/main.3d418b22.css",
-    "static/js/main.15ac7fa4.js"
+    "static/css/main.1950632a.css",
+    "static/js/main.e97196d3.js"
   ]
 }
