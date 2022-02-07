@@ -1,7 +1,10 @@
 import styles from "./AdminConfig.module.css";
 import TourPicker from "./components/TourPicker";
+import WayPointList from"./components/WayPointList";
+
 
 /* This will be stored somewhere proper, eventually. for now, use this to build the site */
+
 const tourList = [
   {
     name: "Headington Campus",
