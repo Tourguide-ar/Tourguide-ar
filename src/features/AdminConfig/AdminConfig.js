@@ -53,7 +53,7 @@ function AdminConfig() {
     <div className={styles[""]}>
       <p>{f(4, 2) + " - this is a template"}</p>
       <TourPicker tourList={tourList} />
-      <WayPointList tourList={tourList} />
+      <WayPointList pointList={tourList[0].waypoints} />
     </div>
   );
 }

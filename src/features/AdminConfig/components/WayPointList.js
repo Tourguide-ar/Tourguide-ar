@@ -9,7 +9,7 @@ function WayPointList({pointList}) {
         >
         {pointList?.map((item,index) => {
             return (
-                index===currentEditItem ? ( <WayPointListItemEdit
+                index===currentEditItem || true? ( <WayPointListItemEdit
                     id={item.id}
                     name={item.name}
                     latitude={item.latitude}
