@@ -1,3 +1,14 @@
 .stage {
   overflow: auto;
 }
+.point-list {
+  background-color: RGBA(60, 60, 60);
+  list-style-type: none; /* Remove bullets */
+  padding: 0; /* Remove padding */
+  margin: 0; /* Remove margins */
+  max-height: 350px;
+  overflow: hidden;
+  overflow-y: auto;
+  position: relative;
+}
+
