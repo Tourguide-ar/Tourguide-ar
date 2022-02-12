@@ -1,6 +1,6 @@
 # tourguide-ar: a big ol' work in progress
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Page live at [Tourguide-ar.github.io/Tourguide-ar/](https://Tourguide-ar.github.io/Tourguide-ar/).
 
 ## Getting started
 
