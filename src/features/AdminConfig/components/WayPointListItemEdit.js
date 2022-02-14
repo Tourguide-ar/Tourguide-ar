@@ -1,6 +1,11 @@
 import styles from "../AdminConfig.module.css";
 import { useState, useRef, useEffect } from "react";
-function WayPointListItemEdit({ name, latitude, longditude,editItemCallback }) {
+function WayPointListItemEdit({
+    name,
+    latitude,
+    longditude,
+    editItemCallback,
+   }) {
   const [innerName, setInnerName] = useState(name);
   const [innerLatitude, setInnerLatitude] = useState(latitude);
   const [innerLongditude, setInnerLongditude] = useState(longditude);
@@ -13,8 +18,8 @@ function WayPointListItemEdit({ name, latitude, longditude,editItemCallback }) {
 
 useEffect(() => {
   editNameRef.current.focus();
-  editLatitudeRef.current.focus();
-  editLongditudeRef.current.focus();
+  //editLatitudeRef.current.focus();
+  //editLongditudeRef.current.focus();
 
 }, [name, latitude, longditude]);
 
@@ -30,7 +35,6 @@ useEffect(() => {
   const submitForm = (e) => {
     e.preventDefault();
     editItemCallback({ name: name, latitude: latitude, longditude: longditude });
-    
   };
   const cancelSubmit = (e) => {
     e.preventDefault();
@@ -56,8 +60,6 @@ useEffect(() => {
     };
   });
  
-  
-
   return (
     <li>
       <form onSubmit={submitForm} onReset={cancelSubmit} onKeyDown={keyDown} >

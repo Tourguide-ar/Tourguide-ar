@@ -1,5 +1,10 @@
 import styles from "../AdminConfig.module.css";
-function WayPointListItem({ id, name, latitude, longditude }) {
+function WayPointListItem({
+   id,
+    name,
+     latitude,
+      longditude,
+       }) {
   return (
     <li>
       <span className={styles["id-style"]}>{id}</span>

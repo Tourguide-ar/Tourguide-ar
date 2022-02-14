@@ -13,6 +13,7 @@ function WayPointList({ pointList }) {
             name={item.name}
             latitude={item.latitude}
             longditude={item.longditude}
+            editItemCallback={pointList.editItemCallback}
           />
         ) : (
           <WayPointListItem
