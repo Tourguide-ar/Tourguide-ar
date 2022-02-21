@@ -37,6 +37,12 @@ const tourList = [
         latitude: 51.74894,
         longditude: -1.1268,
       },
+      {
+        id: 3,
+        name: "The Polygon",
+        latitude: 51.74894,
+        longditude: -1.1268,
+      },
     ],
   },
 ];
