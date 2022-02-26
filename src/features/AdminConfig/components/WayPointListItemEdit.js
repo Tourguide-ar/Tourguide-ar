@@ -18,8 +18,6 @@ function WayPointListItemEdit({
 
 useEffect(() => {
   editNameRef.current.focus();
-  //editLatitudeRef.current.focus();
-  //editLongditudeRef.current.focus();
 
 }, [name, latitude, longditude]);
 
