@@ -2,8 +2,9 @@ import styles from "../AdminConfig.module.css";
 import { useState } from "react";
 import WayPointListItem from "./WayPointListItem";
 import WayPointListItemEdit from "./WayPointListItemEdit";
-function WayPointList({ pointList }) {
-  const [currentEditItem] = useState(-1);
+function WayPointList({ pointList, editItemCallback }) {
+  const [currentEditItem, setCurrentEditItem] = useState(-1);
+
   return (
     <ol className={styles["point-list"]}>
       {pointList?.map((item, index) => {
@@ -13,7 +14,7 @@ function WayPointList({ pointList }) {
             name={item.name}
             latitude={item.latitude}
             longditude={item.longditude}
-            editItemCallback={pointList.editItemCallback}
+            editItemCallback={editItemCallback}
           />
         ) : (
           <WayPointListItem
@@ -21,6 +22,7 @@ function WayPointList({ pointList }) {
             name={item.name}
             latitude={item.latitude}
             longditude={item.longditude}
+            setItemEditActive={setCurrentEditItem(item.id)}
           />
         );
       })}

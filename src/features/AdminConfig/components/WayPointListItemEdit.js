@@ -1,6 +1,7 @@
 import styles from "../AdminConfig.module.css";
 import { useState, useRef, useEffect } from "react";
 function WayPointListItemEdit({
+  id,
     name,
     latitude,
     longditude,
@@ -22,6 +23,7 @@ useEffect(() => {
 }, [name, latitude, longditude]);
 
   const keyDown = (e) => {
+    console.log(e.keyCode);
     if (e.keyCode === 13 && e.shiftKey === false) {
       submitRef.current.click();
     }
@@ -32,7 +34,7 @@ useEffect(() => {
 
   const submitForm = (e) => {
     e.preventDefault();
-    editItemCallback({ name: name, latitude: latitude, longditude: longditude });
+    editItemCallback({ id:id, name:innerName, latitude:innerLatitude, longditude:innerLongditude});
   };
   const cancelSubmit = (e) => {
     e.preventDefault();
