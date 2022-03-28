@@ -1,6 +1,7 @@
 import styles from "./AdminConfig.module.css";
 import WayPointList from "./components/WayPointList";
 import TourPicker from "../../components/TourPicker";
+import { useState, useEffect } from "react";
 
 /* This will be stored somewhere proper, eventually. for now, use this to build the site */
 
@@ -44,16 +45,42 @@ const tourList = [
 ];
 
 function AdminConfig() {
-  const f = (a, b) => {
-    const c = a ** b;
-    return c;
-  };
+  // const [currentTour, setCurrentTour] = useState(
+  //   localStorage.getItem("currentTour") || tourList[0]);
+  const [currentTour, setCurrentTour] = useState(
+    tourList[0]);
+  console.log(JSON.stringify(currentTour));
+
+  const setWaypoints = (newList) => {
+    let cloneTour = currentTour;
+    cloneTour.waypoints = newList;
+    setCurrentTour(cloneTour);
+  }
+
+  const setItem = (item) => {
+    console.log(JSON.stringify(item)); 
+    const newList = [...currentTour.waypoints];
+    const index = currentTour.waypoints.findIndex((listItem) => listItem.id === item.id);
+
+    //this next bit is cool -
+    //destructure your newlist[item] and your item and then re-merge them.
+    //because "item" is later than "newList[item]"", it's values will take priority.
+    newList[index] = {
+      ...newList[index],
+      ...item,
+    };
+    setWaypoints(newList);
+    console.log(JSON.stringify(newList)); 
+    }
+
+  useEffect(() => {
+    localStorage.setItem("currentTour", currentTour);
+  }, [currentTour]);
 
   return (
     <div className={styles[""]}>
-      <p>{f(4, 2) + " - this is a template"}</p>
       <TourPicker tourList={tourList} />
-      <WayPointList pointList={tourList[0].waypoints} />
+      <WayPointList pointList={currentTour.waypoints} editItemCallback={setItem} />
     </div>
   );
 }

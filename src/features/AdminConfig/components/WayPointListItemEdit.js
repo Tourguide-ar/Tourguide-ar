@@ -1,6 +1,7 @@
 import styles from "../AdminConfig.module.css";
 import { useState, useRef, useEffect } from "react";
 function WayPointListItemEdit({
+  id,
   name,
   latitude,
   longditude,
@@ -18,11 +19,10 @@ function WayPointListItemEdit({
 
   useEffect(() => {
     editNameRef.current.focus();
-    editLatitudeRef.current.focus();
-    editLongditudeRef.current.focus();
   }, [name, latitude, longditude]);
 
   const keyDown = (e) => {
+    console.log(e.keyCode);
     if (e.keyCode === 13 && e.shiftKey === false) {
       submitRef.current.click();
     }
@@ -62,7 +62,6 @@ function WayPointListItemEdit({
       window.removeEventListener("dblclick", handleDoubleClick);
     };
   });
-
   return (
     <li>
       <form onSubmit={submitForm} onReset={cancelSubmit} onKeyDown={keyDown}>

@@ -1,6 +1,6 @@
 # tourguide-ar: a big ol' work in progress
 
-Page live at [Tourguide-ar.github.io/Tourguide-ar/](https://Tourguide-ar.github.io/Tourguide-ar/).
+Page live at [Tourguide-ar.github.io/Tourguide-ar](https://Tourguide-ar.github.io/Tourguide-ar/).
 
 ## Getting started
 
