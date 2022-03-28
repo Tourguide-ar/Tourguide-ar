@@ -11,7 +11,9 @@ function TourPicker({ tourList }) {
         })}
       </select>
 
-      <input type="submit" value="Open"></input>
+  <input type="submit" value="Open"></input>
+
+  <input value="Launch"></input>
     </form>
   );
 }

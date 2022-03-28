@@ -1,6 +1,11 @@
 import styles from "../AdminConfig.module.css";
 import { useState, useRef, useEffect } from "react";
-function WayPointListItemEdit({ name, latitude, longditude,editItemCallback }) {
+function WayPointListItemEdit({
+  name,
+  latitude,
+  longditude,
+  editItemCallback,
+}) {
   const [innerName, setInnerName] = useState(name);
   const [innerLatitude, setInnerLatitude] = useState(latitude);
   const [innerLongditude, setInnerLongditude] = useState(longditude);
@@ -11,12 +16,11 @@ function WayPointListItemEdit({ name, latitude, longditude,editItemCallback }) {
   const editLongditudeRef = useRef();
   const liRef = useRef();
 
-useEffect(() => {
-  editNameRef.current.focus();
-  editLatitudeRef.current.focus();
-  editLongditudeRef.current.focus();
-
-}, [name, latitude, longditude]);
+  useEffect(() => {
+    editNameRef.current.focus();
+    editLatitudeRef.current.focus();
+    editLongditudeRef.current.focus();
+  }, [name, latitude, longditude]);
 
   const keyDown = (e) => {
     if (e.keyCode === 13 && e.shiftKey === false) {
@@ -29,8 +33,11 @@ useEffect(() => {
 
   const submitForm = (e) => {
     e.preventDefault();
-    editItemCallback({ name: name, latitude: latitude, longditude: longditude });
-    
+    editItemCallback({
+      name: name,
+      latitude: latitude,
+      longditude: longditude,
+    });
   };
   const cancelSubmit = (e) => {
     e.preventDefault();
@@ -39,14 +46,14 @@ useEffect(() => {
     setInnerLongditude(longditude);
   };
 
-   //handle doubleclicks
-   useEffect(() => {
+  //handle doubleclicks
+  useEffect(() => {
     const handleDoubleClick = (e) => {
       console.log(e.composedPath().includes(liRef.current));
       if (e.composedPath().includes(liRef.current)) {
-          cancelSubmit(e);
-        }
-      };
+        cancelSubmit(e);
+      }
+    };
 
     window.addEventListener("dblclick", handleDoubleClick);
 
@@ -55,12 +62,10 @@ useEffect(() => {
       window.removeEventListener("dblclick", handleDoubleClick);
     };
   });
- 
-  
 
   return (
     <li>
-      <form onSubmit={submitForm} onReset={cancelSubmit} onKeyDown={keyDown} >
+      <form onSubmit={submitForm} onReset={cancelSubmit} onKeyDown={keyDown}>
         <input
           className={styles["name-edit"]}
           value={innerName}
@@ -81,12 +86,12 @@ useEffect(() => {
           ref={editLongditudeRef}
         />
         <div className={styles["edit-buttons"]}>
-        <button type="submit" ref={submitRef}>
-          Save
-        </button>
-        <button type="reset" ref={cancelRef}>
-          Cancel
-        </button>
+          <button type="submit" ref={submitRef}>
+            Save
+          </button>
+          <button type="reset" ref={cancelRef}>
+            Cancel
+          </button>
         </div>
       </form>
     </li>
