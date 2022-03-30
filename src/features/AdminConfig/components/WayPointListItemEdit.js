@@ -12,6 +12,7 @@ function WayPointListItemEdit({
   const [innerLongditude, setInnerLongditude] = useState(longditude);
   const submitRef = useRef();
   const cancelRef = useRef();
+  const delRef = useRef();
   const editNameRef = useRef();
   const editLatitudeRef = useRef();
   const editLongditudeRef = useRef();
@@ -88,6 +89,9 @@ useEffect(() => {
         </button>
         <button type="reset" ref={cancelRef}>
           Cancel
+        </button>
+        <button type="del" ref={delRef}>
+          Delete
         </button>
         </div>
       </form>
