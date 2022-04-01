@@ -60,8 +60,7 @@ function WayPointListEditor() {
             <div className="deck-editor-item-list">
               <div className={styles["spacer"]} />
               <WayPointList
-                o nDeleted={() => {}}
-                editItemCallback={() => {}}
+                onDeleted={(id) => deleteItem(id)}
               />
             </div>
           )}

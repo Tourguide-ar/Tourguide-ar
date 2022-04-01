@@ -1,5 +1,6 @@
 import styles from "../AdminConfig.module.css";
 import { useState, useRef, useEffect } from "react";
+import WayPointListEditor from "./WayPointListEditor";
 function WayPointListItemEdit({
   id,
   name,
@@ -47,6 +48,19 @@ function WayPointListItemEdit({
     setInnerLongditude(longditude);
   };
 
+  const WayPointListEditor = (e,deleteItem) => {
+    deleteItem(e);
+  }
+
+  const deleteForm = (e) => {
+    e.preventDefault();
+    WayPointListEditor();
+    
+  };
+
+  
+
+
   //handle doubleclicks
   useEffect(() => {
     const handleDoubleClick = (e) => {
@@ -63,9 +77,12 @@ function WayPointListItemEdit({
       window.removeEventListener("dblclick", handleDoubleClick);
     };
   });
+  
   return (
+    
     <li>
-      <form onSubmit={submitForm} onReset={cancelSubmit} onKeyDown={keyDown}>
+      <button>Add waypoint</button>
+      <form onSubmit={submitForm} onReset={cancelSubmit} onDelete={deleteForm}  onKeyDown={keyDown}>
         <input
           className={styles["name-edit"]}
           value={innerName}
