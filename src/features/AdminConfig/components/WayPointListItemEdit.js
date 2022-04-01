@@ -2,11 +2,11 @@ import styles from "../AdminConfig.module.css";
 import { useState, useRef, useEffect } from "react";
 function WayPointListItemEdit({
   id,
-    name,
-    latitude,
-    longditude,
-    editItemCallback,
-   }) {
+  name,
+  latitude,
+  longditude,
+  editItemCallback,
+}) {
   const [innerName, setInnerName] = useState(name);
   const [innerLatitude, setInnerLatitude] = useState(latitude);
   const [innerLongditude, setInnerLongditude] = useState(longditude);
@@ -18,10 +18,9 @@ function WayPointListItemEdit({
   const editLongditudeRef = useRef();
   const liRef = useRef();
 
-useEffect(() => {
-  editNameRef.current.focus();
-
-}, [name, latitude, longditude]);
+  useEffect(() => {
+    editNameRef.current.focus();
+  }, [name, latitude, longditude]);
 
   const keyDown = (e) => {
     console.log(e.keyCode);
@@ -35,7 +34,11 @@ useEffect(() => {
 
   const submitForm = (e) => {
     e.preventDefault();
-    editItemCallback({ id:id, name:innerName, latitude:innerLatitude, longditude:innerLongditude});
+    editItemCallback({
+      name: name,
+      latitude: latitude,
+      longditude: longditude,
+    });
   };
   const cancelSubmit = (e) => {
     e.preventDefault();
@@ -44,14 +47,14 @@ useEffect(() => {
     setInnerLongditude(longditude);
   };
 
-   //handle doubleclicks
-   useEffect(() => {
+  //handle doubleclicks
+  useEffect(() => {
     const handleDoubleClick = (e) => {
       console.log(e.composedPath().includes(liRef.current));
       if (e.composedPath().includes(liRef.current)) {
-          cancelSubmit(e);
-        }
-      };
+        cancelSubmit(e);
+      }
+    };
 
     window.addEventListener("dblclick", handleDoubleClick);
 
@@ -60,10 +63,9 @@ useEffect(() => {
       window.removeEventListener("dblclick", handleDoubleClick);
     };
   });
- 
   return (
     <li>
-      <form onSubmit={submitForm} onReset={cancelSubmit} onKeyDown={keyDown} >
+      <form onSubmit={submitForm} onReset={cancelSubmit} onKeyDown={keyDown}>
         <input
           className={styles["name-edit"]}
           value={innerName}
@@ -84,15 +86,15 @@ useEffect(() => {
           ref={editLongditudeRef}
         />
         <div className={styles["edit-buttons"]}>
-        <button type="submit" ref={submitRef}>
-          Save
-        </button>
-        <button type="reset" ref={cancelRef}>
-          Cancel
-        </button>
-        <button type="del" ref={delRef}>
-          Delete
-        </button>
+          <button type="submit" ref={submitRef}>
+            Save
+          </button>
+          <button type="reset" ref={cancelRef}>
+            Cancel
+          </button>
+          <button type="delete" ref={delRef}>
+            Delete
+          </button>
         </div>
       </form>
     </li>
