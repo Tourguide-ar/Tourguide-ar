@@ -82,8 +82,6 @@ function AdminConfig() {
     JSON.parse(localStorage.getItem("currentTour")) || tourList[0]
   );
 
-  console.log(JSON.parse(localStorage.getItem("currentTour")));
-
   const addWayPoint = () => {
     const ids = currentTour.waypoints.map((waypoint) => {
       return waypoint.id;
@@ -126,9 +124,7 @@ function AdminConfig() {
   };
 
   useEffect(() => {
-    console.log("currentT", currentTour);
     localStorage.setItem("currentTour", JSON.stringify(currentTour));
-    // localStorage.clear();
   }, [currentTour]);
 
   return (
@@ -143,6 +139,7 @@ function AdminConfig() {
         />
         <button onClick={addWayPoint}>Add waypoint</button>
       </div>
+      <button onClick={localStorage.clear()}>Refresh localStorage</button>
     </div>
   );
 }
