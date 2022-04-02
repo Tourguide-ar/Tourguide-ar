@@ -35,9 +35,13 @@ function TourPicker({ tourList }) {
         {currentTour.waypoints ? " in this tour" : "Please select a tour"}
       </div>
 
-      <input type="submit" value="Open"></input>
+      <button className="button" type="submit" value="Open">
+        Open
+      </button>
       <Link to="/stage">
-        <input type="button" value="Load Tour"></input>
+        <button className="button" type="button" value="Load Tour">
+          Load Tour
+        </button>
       </Link>
     </form>
   );

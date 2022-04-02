@@ -1,6 +1,6 @@
 .nav {
-  background: rgb(83, 83, 83);
-  box-shadow: 0px 1px 3px rgb(50, 180, 100);
+  background: rgb(74, 76, 74);
+  box-shadow: 1px 2px 3px darkorange;
   margin: 0 0 1rem 0;
 }
 
@@ -18,7 +18,7 @@
   display: block;
   padding: 0.25rem;
   font-weight: 700;
-  color: white;
+  color: darkorange;
   text-decoration: none;
 }
 
@@ -27,5 +27,5 @@
   height: 1.5rem;
   width: 0.125rem;
   width: 1px;
-  background: rgb(90, 180, 100);
+  background: darkorange;
 }

@@ -1,0 +1,12 @@
+ select {
+    margin: 2px;
+    background-color: whitesmoke;
+
+    padding: 0.2rem;
+    margin: 0.1rem;
+  
+  }
+
+  button {
+    color: darkorange;
+  }

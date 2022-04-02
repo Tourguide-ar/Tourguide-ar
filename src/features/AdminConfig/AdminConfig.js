@@ -5,6 +5,7 @@ import { useReducer, useEffect } from "react";
 
 /* This will be stored somewhere proper, eventually. for now, use this to build the site */
 
+console.log(localStorage.getItem("currentTour"));
 const tourList = [
   {
     name: "Headington Campus",
@@ -44,6 +45,15 @@ const tourList = [
   },
 ];
 
+let defaultTour = {};
+
+try {
+  defaultTour = JSON.parse(localStorage.getItem("currentTour")) || tourList[0];
+} catch {
+  defaultTour = tourList[0];
+  // do something
+}
+
 const tourReducer = (state, action) => {
   switch (action.type) {
     case "appendWaypoint": {
@@ -77,10 +87,7 @@ const tourReducer = (state, action) => {
   }
 };
 function AdminConfig() {
-  const [currentTour, dispatchTour] = useReducer(
-    tourReducer,
-    JSON.parse(localStorage.getItem("currentTour")) || tourList[0]
-  );
+  const [currentTour, dispatchTour] = useReducer(tourReducer, defaultTour);
 
   const addWayPoint = () => {
     const ids = currentTour.waypoints.map((waypoint) => {

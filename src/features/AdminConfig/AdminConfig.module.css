@@ -1,15 +1,59 @@
 .stage {
   overflow: auto;
+
 }
+
 .point-list {
-  background-color: RGBA(60, 60, 60);
   list-style-type: none; /* Remove bullets */
-  padding: 0; /* Remove padding */
-  margin: 0; /* Remove margins */
+  padding: 0.6rem;
+  margin: 0.6rem;
   max-height: 350px;
   overflow: hidden;
   overflow-y: auto;
   position: relative;
 }
 
+button {
+  margin: 2px;
+  color: darkorange;
+  background-color:rgb(45, 45, 48);
+
+}
+
+.form-edit {
+
+  margin: 0 0.2rem;
+  padding: 0 0.2rem;
+  
+}
+.name-edit {
+  
+  margin: 0 0.2rem;
+  padding: 0 0.2rem;
+  background-color:whitesmoke;
+  
+}
+
+.latitude-edit{
+
+  margin: 0 0.2rem;
+  padding: 0 0.2rem;
+  background-color:whitesmoke;
+
+}
+
+.longditude-edit{
+
+  margin: 0 0.2rem;
+  padding: 0 0.2rem;
+  background-color:whitesmoke;
+
+}
+input {
+  margin: 2px;
+  background-color:rgb(45, 45, 48);
+  padding: 0.2rem;
+  margin: 0.1rem;
+
+}
 

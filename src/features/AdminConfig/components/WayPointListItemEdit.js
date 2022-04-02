@@ -35,9 +35,10 @@ function WayPointListItemEdit({
   const submitForm = (e) => {
     e.preventDefault();
     editItemCallback({
-      name: name,
-      latitude: latitude,
-      longditude: longditude,
+      id: id,
+      name: innerName,
+      latitude: innerLatitude,
+      longditude: innerLongditude,
     });
   };
   const cancelSubmit = (e) => {
@@ -55,6 +56,7 @@ function WayPointListItemEdit({
   return (
     <li>
       <form
+        className={styles["form-edit"]}
         onSubmit={submitForm}
         onReset={cancelSubmit}
         // onDelete={deleteForm} onDelete isn't a default handle
