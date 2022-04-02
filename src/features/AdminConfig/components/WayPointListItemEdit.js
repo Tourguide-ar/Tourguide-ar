@@ -17,7 +17,7 @@ function WayPointListItemEdit({
   const editNameRef = useRef();
   const editLatitudeRef = useRef();
   const editLongditudeRef = useRef();
-  const liRef = useRef();
+  // const liRef = useRef();
 
   useEffect(() => {
     editNameRef.current.focus();

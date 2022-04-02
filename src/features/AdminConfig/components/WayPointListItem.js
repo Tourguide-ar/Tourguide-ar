@@ -7,7 +7,7 @@ function WayPointListItem({
   setItemEditActive,
 }) {
   return (
-    <li>
+    <li onDoubleClick={setItemEditActive}>
       <span className={styles["id-style"]}>{id}</span>
       <span className={styles["name-style"]}>{name}</span>
       <span className={styles["latitude-style"]}>{latitude}</span>

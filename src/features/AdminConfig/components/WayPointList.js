@@ -11,6 +11,7 @@ function WayPointList({ pointList, editItemCallback, deleteWaypoint }) {
       {pointList?.map((item, index) => {
         return index === currentEditItem || true ? (
           <WayPointListItemEdit
+            key={item.id}
             id={item.id}
             name={item.name}
             latitude={item.latitude}
@@ -20,6 +21,7 @@ function WayPointList({ pointList, editItemCallback, deleteWaypoint }) {
           />
         ) : (
           <WayPointListItem
+            key={item.id}
             id={item.id}
             name={item.name}
             latitude={item.latitude}

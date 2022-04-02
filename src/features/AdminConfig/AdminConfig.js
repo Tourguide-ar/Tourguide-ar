@@ -77,16 +77,12 @@ const tourReducer = (state, action) => {
   }
 };
 function AdminConfig() {
-  // const [currentTour, setCurrentTour] = useState(
-  //   localStorage.getItem("currentTour") || tourList[0]);
-  const [currentTour, dispatchTour] = useReducer(tourReducer, tourList[0]);
-  console.log(JSON.stringify(currentTour));
+  const [currentTour, dispatchTour] = useReducer(
+    tourReducer,
+    JSON.parse(localStorage.getItem("currentTour")) || tourList[0]
+  );
 
-  const setWaypoints = (newList) => {
-    let cloneTour = currentTour;
-    cloneTour.waypoints = newList;
-    dispatchTour({ type: "setWaypoints", payload: newList });
-  };
+  console.log(JSON.parse(localStorage.getItem("currentTour")));
 
   const addWayPoint = () => {
     const ids = currentTour.waypoints.map((waypoint) => {
@@ -130,8 +126,9 @@ function AdminConfig() {
   };
 
   useEffect(() => {
-    localStorage.setItem("currentTour", currentTour);
-    console.log(currentTour);
+    console.log("currentT", currentTour);
+    localStorage.setItem("currentTour", JSON.stringify(currentTour));
+    // localStorage.clear();
   }, [currentTour]);
 
   return (
