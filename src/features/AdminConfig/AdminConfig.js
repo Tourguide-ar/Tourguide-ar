@@ -47,20 +47,27 @@ const tourList = [
 function AdminConfig() {
   // const [currentTour, setCurrentTour] = useState(
   //   localStorage.getItem("currentTour") || tourList[0]);
-  const [currentTour, setCurrentTour] = useState(
-    tourList[0]);
+  const [currentTour, setCurrentTour] = useState(tourList[0]);
   console.log(JSON.stringify(currentTour));
 
   const setWaypoints = (newList) => {
     let cloneTour = currentTour;
     cloneTour.waypoints = newList;
     setCurrentTour(cloneTour);
-  }
+  };
+
+  const addItem = () => {
+    //add a blank item to the waypointlist
+
+    return;
+  };
 
   const setItem = (item) => {
-    console.log(JSON.stringify(item)); 
+    console.log(JSON.stringify(item));
     const newList = [...currentTour.waypoints];
-    const index = currentTour.waypoints.findIndex((listItem) => listItem.id === item.id);
+    const index = currentTour.waypoints.findIndex(
+      (listItem) => listItem.id === item.id
+    );
 
     //this next bit is cool -
     //destructure your newlist[item] and your item and then re-merge them.
@@ -70,8 +77,8 @@ function AdminConfig() {
       ...item,
     };
     setWaypoints(newList);
-    console.log(JSON.stringify(newList)); 
-    }
+    console.log(JSON.stringify(newList));
+  };
 
   useEffect(() => {
     localStorage.setItem("currentTour", currentTour);
@@ -80,7 +87,10 @@ function AdminConfig() {
   return (
     <div className={styles[""]}>
       <TourPicker tourList={tourList} />
-      <WayPointList pointList={currentTour.waypoints} editItemCallback={setItem} />
+      <WayPointList
+        pointList={currentTour.waypoints}
+        editItemCallback={setItem}
+      />
     </div>
   );
 }
