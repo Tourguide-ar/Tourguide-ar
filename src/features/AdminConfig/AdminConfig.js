@@ -1,7 +1,7 @@
 import styles from "./AdminConfig.module.css";
 import WayPointList from "./components/WayPointList";
 import TourPicker from "../../components/TourPicker";
-import { useState, useEffect } from "react";
+import { useReducer, useEffect } from "react";
 
 /* This will be stored somewhere proper, eventually. for now, use this to build the site */
 
@@ -44,53 +44,108 @@ const tourList = [
   },
 ];
 
+const tourReducer = (state, action) => {
+  switch (action.type) {
+    case "appendWaypoint": {
+      return {
+        ...state,
+        waypoints: [...state.waypoints, action.payload],
+      };
+    }
+    case "deleteWaypoint": {
+      const index = state.waypoints.findIndex(
+        (item) => item.id === action.payload.id
+      );
+
+      return {
+        ...state,
+        waypoints: [
+          ...state.waypoints.slice(0, index),
+          ...state.waypoints.slice(index + 1),
+        ],
+      };
+    }
+    case "setWaypoints": {
+      return {
+        ...state,
+        waypoints: action.payload,
+      };
+    }
+    default: {
+      return state;
+    }
+  }
+};
 function AdminConfig() {
   // const [currentTour, setCurrentTour] = useState(
   //   localStorage.getItem("currentTour") || tourList[0]);
-  const [currentTour, setCurrentTour] = useState(tourList[0]);
+  const [currentTour, dispatchTour] = useReducer(tourReducer, tourList[0]);
   console.log(JSON.stringify(currentTour));
 
   const setWaypoints = (newList) => {
     let cloneTour = currentTour;
     cloneTour.waypoints = newList;
-    setCurrentTour(cloneTour);
+    dispatchTour({ type: "setWaypoints", payload: newList });
   };
 
-  const addItem = () => {
-    //add a blank item to the waypointlist
+  const addWayPoint = () => {
+    const ids = currentTour.waypoints.map((waypoint) => {
+      return waypoint.id;
+    });
+    const newId = Math.max(...ids) + 1;
+    //find the highest id
+    //set the default name
+    // set the deafult lat and long...
 
-    return;
+    const newWayPoint = {
+      id: newId,
+      name: "The dog",
+      latitude: 55.946885,
+      longditude: -3.191262,
+    };
+    //setItem(newWayPoint);
+    dispatchTour({
+      type: "appendWaypoint",
+      payload: newWayPoint,
+    });
+  };
+
+  const deleteWaypoint = (waypoint) => {
+    dispatchTour({
+      type: "deleteWaypoint",
+      payload: waypoint,
+    });
   };
 
   const setItem = (item) => {
-    console.log(JSON.stringify(item));
     const newList = [...currentTour.waypoints];
     const index = currentTour.waypoints.findIndex(
       (listItem) => listItem.id === item.id
     );
-
-    //this next bit is cool -
-    //destructure your newlist[item] and your item and then re-merge them.
-    //because "item" is later than "newList[item]"", it's values will take priority.
     newList[index] = {
       ...newList[index],
       ...item,
     };
-    setWaypoints(newList);
-    console.log(JSON.stringify(newList));
+    dispatchTour({ type: "setWaypoints", payload: newList });
   };
 
   useEffect(() => {
     localStorage.setItem("currentTour", currentTour);
+    console.log(currentTour);
   }, [currentTour]);
 
   return (
     <div className={styles[""]}>
       <TourPicker tourList={tourList} />
-      <WayPointList
-        pointList={currentTour.waypoints}
-        editItemCallback={setItem}
-      />
+      <div>
+        {" "}
+        <WayPointList
+          pointList={currentTour.waypoints}
+          editItemCallback={setItem}
+          deleteWaypoint={deleteWaypoint}
+        />
+        <button onClick={addWayPoint}>Add waypoint</button>
+      </div>
     </div>
   );
 }

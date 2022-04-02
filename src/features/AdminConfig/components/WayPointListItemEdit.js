@@ -6,12 +6,14 @@ function WayPointListItemEdit({
   latitude,
   longditude,
   editItemCallback,
+  deleteWaypoint,
 }) {
   const [innerName, setInnerName] = useState(name);
   const [innerLatitude, setInnerLatitude] = useState(latitude);
   const [innerLongditude, setInnerLongditude] = useState(longditude);
   const submitRef = useRef();
   const cancelRef = useRef();
+  const delRef = useRef();
   const editNameRef = useRef();
   const editLatitudeRef = useRef();
   const editLongditudeRef = useRef();
@@ -22,7 +24,6 @@ function WayPointListItemEdit({
   }, [name, latitude, longditude]);
 
   const keyDown = (e) => {
-    console.log(e.keyCode);
     if (e.keyCode === 13 && e.shiftKey === false) {
       submitRef.current.click();
     }
@@ -46,25 +47,19 @@ function WayPointListItemEdit({
     setInnerLongditude(longditude);
   };
 
-  //handle doubleclicks
-  useEffect(() => {
-    const handleDoubleClick = (e) => {
-      console.log(e.composedPath().includes(liRef.current));
-      if (e.composedPath().includes(liRef.current)) {
-        cancelSubmit(e);
-      }
-    };
+  const removeWaypoint = (e) => {
+    e.preventDefault();
+    deleteWaypoint({ id, name, latitude, longditude });
+  };
 
-    window.addEventListener("dblclick", handleDoubleClick);
-
-    //stop the app from generating a bajillion eventListeners:
-    return () => {
-      window.removeEventListener("dblclick", handleDoubleClick);
-    };
-  });
   return (
     <li>
-      <form onSubmit={submitForm} onReset={cancelSubmit} onKeyDown={keyDown}>
+      <form
+        onSubmit={submitForm}
+        onReset={cancelSubmit}
+        // onDelete={deleteForm} onDelete isn't a default handle
+        onKeyDown={keyDown}
+      >
         <input
           className={styles["name-edit"]}
           value={innerName}
@@ -90,6 +85,9 @@ function WayPointListItemEdit({
           </button>
           <button type="reset" ref={cancelRef}>
             Cancel
+          </button>
+          <button type="delete" onClick={removeWaypoint} ref={delRef}>
+            Delete
           </button>
         </div>
       </form>
