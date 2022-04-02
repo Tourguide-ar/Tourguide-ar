@@ -2,7 +2,8 @@ import styles from "../AdminConfig.module.css";
 import { useState } from "react";
 import WayPointListItem from "./WayPointListItem";
 import WayPointListItemEdit from "./WayPointListItemEdit";
-function WayPointList({ pointList, editItemCallback }) {
+
+function WayPointList({ pointList, editItemCallback, deleteWaypoint }) {
   const [currentEditItem, setCurrentEditItem] = useState(-1);
 
   return (
@@ -15,6 +16,7 @@ function WayPointList({ pointList, editItemCallback }) {
             latitude={item.latitude}
             longditude={item.longditude}
             editItemCallback={editItemCallback}
+            deleteWaypoint={deleteWaypoint}
           />
         ) : (
           <WayPointListItem
@@ -23,6 +25,7 @@ function WayPointList({ pointList, editItemCallback }) {
             latitude={item.latitude}
             longditude={item.longditude}
             setItemEditActive={setCurrentEditItem(item.id)}
+            deleteWaypoint={deleteWaypoint}
           />
         );
       })}
