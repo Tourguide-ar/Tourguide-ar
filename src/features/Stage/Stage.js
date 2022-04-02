@@ -1,37 +1,13 @@
 import React, { useEffect } from "react";
 // import { AScene, AEntity } from "aframe";
 import "aframe";
-import {
-  Box,
-  Sphere,
-  Cylinder,
-  Plane,
-  Sky,
-  Text,
-  Scene,
-  Camera,
-} from "react-aframe-ar";
+import { Box, Scene, Camera } from "react-aframe-ar";
 
 const waypoint = {
   id: 1,
   name: "JHB Ramp",
   latitude: 51.755291,
   longditude: -1.225515,
-};
-
-const useScript = (url) => {
-  useEffect(() => {
-    const script = document.createElement("script");
-
-    script.src = url;
-    script.async = true;
-
-    document.body.appendChild(script);
-
-    return () => {
-      document.body.removeChild(script);
-    };
-  }, [url]);
 };
 
 function Stage() {

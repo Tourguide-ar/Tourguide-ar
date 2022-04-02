@@ -111,6 +111,11 @@ function AdminConfig() {
     });
   };
 
+  const refreshLocalStorage = (e) => {
+    console.log("Clearing local storage");
+    localStorage.clear();
+  };
+
   const setItem = (item) => {
     const newList = [...currentTour.waypoints];
     const index = currentTour.waypoints.findIndex(
@@ -139,7 +144,7 @@ function AdminConfig() {
         />
         <button onClick={addWayPoint}>Add waypoint</button>
       </div>
-      <button onClick={localStorage.clear()}>Refresh localStorage</button>
+      <button onClick={refreshLocalStorage}>Refresh localStorage</button>
     </div>
   );
 }
